@@ -26,7 +26,7 @@ class ResultDB(SplitTableMixin, BaseResultDB):
         self.table = Table('__tablename__', MetaData(),
                            Column('taskid', String(64), primary_key=True, nullable=False),
                            Column('url', String(1024)),
-                           Column('result', LargeBinary),
+                           Column('result', LargeBinary(length=65536)),
                            Column('updatetime', Float(32)),
                            mysql_engine='InnoDB',
                            mysql_charset='utf8'
